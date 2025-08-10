@@ -1,0 +1,71 @@
+.skeletonContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.skeletonSidebar {
+  display: flex;
+  flex-direction: column;
+  width: clamp(280px, 30vw, 320px);
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+}
+
+.skeletonSidebarHeader {
+  padding: clamp(var(--spacing-3), 3vw, var(--spacing-4));
+  border-bottom: 1px solid var(--border);
+}
+
+.skeletonConversationList {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: var(--spacing-2) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.skeletonConversationItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--spacing-2), 2vw, var(--spacing-3));
+  padding: clamp(var(--spacing-2), 2vw, var(--spacing-3)) clamp(var(--spacing-3), 3vw, var(--spacing-4));
+  margin: 0 var(--spacing-2);
+  border-radius: var(--radius);
+}
+
+.skeletonConversationInfo {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.skeletonChatPanel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeletonNoChatSelected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .skeletonSidebar {
+    width: 100%;
+  }
+  
+  .skeletonConversationItem {
+    margin: 0;
+    border-radius: 0;
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+}

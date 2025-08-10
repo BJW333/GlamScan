@@ -1,0 +1,149 @@
+.focusTarget {
+  position: relative;
+  border-radius: inherit;
+}
+
+.focusTarget:focus-visible {
+  outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid) var(--focus-ring-color, var(--accent));
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* Skip link styles */
+.skipLink {
+  position: absolute;
+  top: -100vh;
+  left: var(--spacing-4);
+  z-index: var(--z-critical);
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--surface);
+  color: var(--surface-foreground);
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: top var(--animation-duration-fast) ease-out;
+}
+
+.skipLink:focus {
+  top: var(--spacing-4);
+}
+
+.skipLink:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Focus trap styles */
+.focusTrap {
+  position: relative;
+}
+
+.focusTrap[data-focus-trap="true"] {
+  isolation: isolate;
+}
+
+/* Roving tabindex styles */
+.rovingTabIndex {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.rovingTabIndex[data-orientation="vertical"] {
+  flex-direction: column;
+}
+
+.rovingTabIndex[data-orientation="horizontal"] {
+  flex-direction: row;
+}
+
+.rovingItem {
+  position: relative;
+}
+
+.rovingItem:focus-within {
+  z-index: var(--z-content);
+}
+
+/* Enhanced focus styles for different contexts */
+.focusTarget[data-context="button"]:focus-visible {
+  outline-color: var(--primary);
+  outline-width: 3px;
+}
+
+.focusTarget[data-context="input"]:focus-visible {
+  outline-color: var(--accent);
+  outline-width: 2px;
+  outline-offset: 1px;
+}
+
+.focusTarget[data-context="link"]:focus-visible {
+  outline-color: var(--info);
+  outline-style: dashed;
+}
+
+.focusTarget[data-context="danger"]:focus-visible {
+  outline-color: var(--error);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .focusTarget:focus-visible {
+    outline-width: 3px;
+    outline-color: currentColor;
+  }
+  
+  .skipLink {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .skipLink {
+    transition: none;
+  }
+}
+
+/* Dark mode adjustments */
+.dark .skipLink {
+  background: var(--surface);
+  color: var(--surface-foreground);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Focus indicators for different interaction methods */
+.focusTarget[data-focus-method="keyboard"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.focusTarget[data-focus-method="mouse"]:focus {
+  outline: none;
+}
+
+/* Ensure focus rings don't get clipped */
+.focusTarget {
+  overflow: visible;
+}
+
+/* Focus ring animations */
+.focusTarget:focus-visible {
+  animation: focusRingPulse 0.3s ease-out;
+}
+
+@keyframes focusRingPulse {
+  0% {
+    outline-width: 0;
+    outline-offset: 0;
+  }
+  100% {
+    outline-width: var(--focus-ring-width, 2px);
+    outline-offset: var(--focus-ring-offset, 2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focusTarget:focus-visible {
+    animation: none;
+  }
+}

@@ -1,0 +1,193 @@
+.container {
+  opacity: 0;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-timing-function: ease-out;
+}
+
+.container.animate {
+  opacity: 1;
+}
+
+/* Duration variants */
+.fast {
+  transition-duration: var(--animation-duration-fast);
+}
+
+.normal {
+  transition-duration: var(--animation-duration-normal);
+}
+
+.slow {
+  transition-duration: var(--animation-duration-slow);
+}
+
+/* Animation variants */
+.fadeIn.animate {
+  opacity: 1;
+}
+
+.slideUp {
+  transform: translateY(2rem);
+}
+
+.slideUp.animate {
+  transform: translateY(0);
+}
+
+.slideDown {
+  transform: translateY(-2rem);
+}
+
+.slideDown.animate {
+  transform: translateY(0);
+}
+
+.slideLeft {
+  transform: translateX(2rem);
+}
+
+.slideLeft.animate {
+  transform: translateX(0);
+}
+
+.slideRight {
+  transform: translateX(-2rem);
+}
+
+.slideRight.animate {
+  transform: translateX(0);
+}
+
+.scaleIn {
+  transform: scale(0.9);
+}
+
+.scaleIn.animate {
+  transform: scale(1);
+}
+
+/* Micro-interaction styles */
+.hoverScale {
+  transition: transform var(--animation-duration-fast) ease-out;
+  cursor: pointer;
+}
+
+.hoverScale:hover {
+  transform: scale(var(--scale-factor, 1.05));
+}
+
+.hoverScale:active {
+  transform: scale(calc(var(--scale-factor, 1.05) * 0.95));
+}
+
+.pressAnimation {
+  transition: transform var(--animation-duration-fast) ease-out;
+}
+
+.pressAnimation:active {
+  transform: scale(0.95);
+}
+
+/* Floating animation */
+.floating {
+  animation: float var(--animation-duration-slow) ease-in-out infinite alternate;
+}
+
+.floating.subtle {
+  animation-duration: 4s;
+}
+
+.floating.normal {
+  animation-duration: 3s;
+}
+
+.floating.strong {
+  animation-duration: 2s;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-0.5rem);
+  }
+}
+
+.floating.strong {
+  animation-name: floatStrong;
+}
+
+@keyframes floatStrong {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1rem);
+  }
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .hoverScale,
+  .pressAnimation {
+    transition: none;
+  }
+  
+  .floating {
+    animation: none;
+  }
+  
+  .hoverScale:hover,
+  .hoverScale:active,
+  .pressAnimation:active {
+    transform: none;
+  }
+  
+  /* Provide alternative feedback for reduced motion */
+  .hoverScale:hover {
+    opacity: 0.8;
+  }
+  
+  .pressAnimation:active {
+    opacity: 0.7;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .hoverScale:hover {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.hoverScale:focus-visible,
+.pressAnimation:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Ensure animations don't interfere with layout */
+.container {
+  will-change: opacity, transform;
+}
+
+.floating {
+  will-change: transform;
+}
+
+/* Performance optimizations */
+.hoverScale,
+.pressAnimation {
+  will-change: transform;
+}
+
+.hoverScale:not(:hover):not(:active),
+.pressAnimation:not(:active) {
+  will-change: auto;
+}

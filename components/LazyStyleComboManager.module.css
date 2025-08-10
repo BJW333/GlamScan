@@ -1,0 +1,78 @@
+.skeletonWrapper {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-6);
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+}
+
+.skeletonHeader {
+  margin-bottom: var(--spacing-6);
+  text-align: center;
+}
+
+.skeletonForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skeletonField {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeletonFieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+}
+
+.skeletonItemsSection {
+  border-top: 1px solid var(--border);
+  padding-top: var(--spacing-4);
+}
+
+.skeletonItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-3);
+}
+
+.skeletonItemInfo {
+  flex-grow: 1;
+}
+
+.skeletonActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .skeletonWrapper {
+    padding: var(--spacing-4);
+  }
+  
+  .skeletonFieldRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeletonItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+  }
+  
+  .skeletonActions {
+    flex-direction: column;
+  }
+}

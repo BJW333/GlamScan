@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  background-color: var(--muted);
+  padding: var(--spacing-4);
+  border-radius: var(--radius-md);
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.itemCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  background-color: var(--surface);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  /* Reset FormItem margin */
+  margin-bottom: 0 !important; 
+}
+
+.dragHandle {
+  color: var(--muted-foreground);
+  cursor: grab;
+  flex-shrink: 0;
+  margin-top: var(--spacing-2);
+}
+
+.itemImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background-color: var(--muted);
+  flex-shrink: 0;
+}
+
+.itemInputs {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.itemInputs .grid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--spacing-2);
+}
+
+.deleteButton {
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+}
+
+.deleteButton:hover {
+  color: var(--error);
+  background-color: color-mix(in srgb, var(--error) 10%, transparent);
+}
+
+.addButton {
+  align-self: flex-start;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  text-align: center;
+  color: var(--muted-foreground);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.skeletonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.itemDetails {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-2);
+}

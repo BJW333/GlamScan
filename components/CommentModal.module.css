@@ -1,0 +1,65 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--background), transparent 20%);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  animation: fadeIn var(--animation-duration-fast) ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.panel {
+  background-color: var(--surface);
+  color: var(--surface-foreground);
+  width: 100%;
+  max-width: 640px;
+  height: 80vh;
+  max-height: 900px;
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  animation: slideIn var(--animation-duration-normal) cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+  margin: 0;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* The CommentThread component has its own padding, so we don't need to add it here */
+.content > :first-child {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}

@@ -1,0 +1,21 @@
+.bellButton {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: var(--spacing-1);
+  right: var(--spacing-1);
+  height: 1rem;
+  min-width: 1rem;
+  padding: 0 var(--spacing-1);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  pointer-events: none;
+  transform: translate(25%, -25%);
+}
+
+.popoverContent {
+  width: 24rem;
+  max-width: 90vw;
+}

@@ -1,0 +1,332 @@
+.pageContainer {
+  padding: var(--spacing-8);
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: var(--font-family-base);
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--spacing-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-8);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sparkleIcon {
+  color: var(--secondary);
+}
+
+/* Scanner Section */
+.scannerSection {
+  background-color: var(--surface);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.dropzoneContainer {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Results Section */
+.resultsSection {
+  min-height: 300px;
+}
+
+.recommendationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.recCard {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.recImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recImageSkeleton {
+  width: 100%;
+  height: 200px;
+  border-radius: 0;
+}
+
+.recContent {
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.recType {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.recName {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-2) 0;
+  flex-grow: 1;
+}
+
+.recDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-4);
+}
+
+.recFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.recPrice {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* States */
+.errorState,
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-12) var(--spacing-8);
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+  color: var(--muted-foreground);
+}
+
+.errorIcon {
+  color: var(--error);
+  margin-bottom: var(--spacing-4);
+}
+
+.emptyIcon {
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.errorTitle,
+.emptyTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.errorMessage,
+.emptyMessage {
+  margin-bottom: var(--spacing-6);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.errorActions,
+.emptyActions {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.emptyTips {
+  margin-top: var(--spacing-4);
+  text-align: left;
+  max-width: 300px;
+}
+
+.emptyTips h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-2);
+  color: var(--foreground);
+}
+
+.emptyTips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emptyTips li {
+  padding: var(--spacing-1) 0;
+  position: relative;
+  padding-left: var(--spacing-4);
+}
+
+.emptyTips li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* Onboarding Tooltip */
+.onboardingTooltip {
+  position: absolute;
+  top: -16rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-content);
+  width: 100%;
+  max-width: 400px;
+  pointer-events: auto;
+}
+
+.tooltipContent {
+  background-color: var(--popup);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.tooltipContent::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--popup);
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
+}
+
+.tooltipIcon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.tooltipTitle {
+  font-weight: 600;
+  color: var(--popup-foreground);
+  flex-grow: 1;
+}
+
+.tooltipClose {
+  background: none;
+  border: none;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--animation-duration-fast);
+}
+
+.tooltipClose:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.tooltipText {
+  color: var(--popup-foreground);
+  margin: 0 0 var(--spacing-3) 0;
+  line-height: 1.5;
+}
+
+.tooltipTips {
+  font-size: 0.875rem;
+}
+
+.tooltipTips strong {
+  color: var(--popup-foreground);
+  display: block;
+  margin-bottom: var(--spacing-2);
+}
+
+.tooltipTips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltipTips li {
+  padding: var(--spacing-1) 0;
+  position: relative;
+  padding-left: var(--spacing-4);
+  color: var(--muted-foreground);
+}
+
+.tooltipTips li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .onboardingTooltip {
+    position: relative;
+    top: 0;
+    left: auto;
+    transform: none;
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .tooltipContent::after {
+    display: none;
+  }
+}

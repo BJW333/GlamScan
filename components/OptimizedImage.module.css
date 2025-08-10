@@ -1,0 +1,98 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--muted);
+  border-radius: inherit;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.blurPlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: inherit;
+  filter: blur(10px);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  color: var(--muted-foreground);
+  padding: var(--spacing-4);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+}
+
+.errorIcon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.errorText {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Ensure proper aspect ratio maintenance */
+.container[style*="aspect-ratio"] {
+  height: auto;
+}
+
+/* Performance optimizations */
+.image {
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduce layout shift */
+.container::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: var(--aspect-ratio, 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Modern image format support indicators */
+@supports (image-rendering: -webkit-optimize-contrast) {
+  .image {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+@supports (image-rendering: crisp-edges) {
+  .image {
+    image-rendering: crisp-edges;
+  }
+}

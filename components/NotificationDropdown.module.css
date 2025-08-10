@@ -1,0 +1,129 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--popup);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-height: 70vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+}
+
+.notificationList {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: var(--spacing-2) 0;
+}
+
+.notificationItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  text-decoration: none;
+  color: var(--popup-foreground);
+  position: relative;
+  transition: background-color var(--animation-duration-fast);
+}
+
+.notificationItem:hover {
+  background-color: var(--muted);
+}
+
+.notificationItem.unread {
+  font-weight: 500;
+}
+
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.notificationContent {
+  flex-grow: 1;
+}
+
+.notificationMessage {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.notificationTime {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  flex-shrink: 0;
+  margin-left: var(--spacing-2);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: var(--spacing-2);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.viewAllButton {
+  width: 100%;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8) var(--spacing-4);
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.emptyIcon {
+  color: var(--muted-foreground);
+  opacity: 0.5;
+  margin-bottom: var(--spacing-4);
+}
+
+.emptyState p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 var(--spacing-1);
+  color: var(--foreground);
+}
+
+.emptyState span {
+  font-size: 0.875rem;
+}
+
+.errorText {
+  text-align: center;
+  color: var(--error);
+  padding: var(--spacing-8) 0;
+}

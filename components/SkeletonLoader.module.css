@@ -1,0 +1,160 @@
+.skeleton {
+  background: var(--skeleton-bg);
+  border-radius: var(--radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimmer),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+/* Animation variants */
+.pulse {
+  animation: skeletonPulse 2s ease-in-out infinite;
+}
+
+.wave::after {
+  animation: skeletonWave 2s ease-in-out infinite;
+}
+
+.none {
+  /* No animation */
+}
+
+/* Shape variants */
+.text {
+  border-radius: var(--radius-sm);
+}
+
+.rectangular {
+  border-radius: 0;
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.circular {
+  border-radius: var(--radius-full);
+}
+
+/* Container for multiple text lines */
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+/* Preset component styles */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.productContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.productImage {
+  aspect-ratio: 1;
+}
+
+.productPrice {
+  margin-top: var(--spacing-2);
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+}
+
+.listContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.formLabel {
+  margin-bottom: var(--spacing-1);
+}
+
+/* Animations */
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes skeletonWave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .productCard {
+    padding: var(--spacing-3);
+    gap: var(--spacing-3);
+  }
+  
+  .listItem {
+    padding: var(--spacing-3);
+    gap: var(--spacing-3);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pulse,
+  .wave::after {
+    animation: none;
+  }
+  
+  .skeleton {
+    opacity: 0.7;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .skeleton {
+    background: var(--muted);
+    border: 1px solid var(--border);
+  }
+}

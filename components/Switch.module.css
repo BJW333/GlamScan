@@ -1,0 +1,38 @@
+.switchRoot {
+  position: relative;
+  display: inline-flex;
+  height: 24px;
+  width: 44px;
+  flex-shrink: 0;
+  cursor: pointer;
+  align-items: center;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  background-color: var(--muted);
+  transition: background-color var(--animation-duration-fast) ease-in-out;
+  outline: none;
+}
+
+.switchRoot:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+.switchRoot[data-state='checked'] {
+  background-color: var(--primary);
+}
+
+.switchThumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--surface);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow);
+  transition: transform var(--animation-duration-fast) ease-in-out;
+  transform: translateX(2px);
+  will-change: transform;
+}
+
+.switchThumb[data-state='checked'] {
+  transform: translateX(22px);
+}

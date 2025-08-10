@@ -1,0 +1,282 @@
+.postContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--muted);
+  color: white;
+  font-family: var(--font-family-base);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.postImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
+  padding: clamp(var(--spacing-3), 4vw, var(--spacing-6));
+}
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  text-decoration: none;
+  color: white;
+  border-radius: var(--radius);
+  padding: var(--spacing-1);
+  transition: background-color var(--animation-duration-fast);
+}
+
+.authorInfo:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.authorName {
+  font-weight: 700;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: clamp(var(--spacing-2), 3vw, var(--spacing-6));
+}
+
+.mainContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.caption {
+  font-size: clamp(0.875rem, 2.5vw, 0.9375rem);
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  max-width: 90%;
+}
+
+.productTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(var(--spacing-1), 1.5vw, var(--spacing-2));
+}
+
+.productTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  color: white;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--animation-duration-fast);
+  min-height: 2.75rem;
+}
+
+.productTag:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.productTag:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(var(--spacing-4), 5vw, var(--spacing-8));
+}
+
+.voteButtons {
+  display: flex;
+  gap: clamp(var(--spacing-2), 3vw, var(--spacing-4));
+}
+
+.actionButton {
+  border-radius: var(--radius-full);
+  width: clamp(3.5rem, 12vw, 4.5rem);
+  height: clamp(3.5rem, 12vw, 4.5rem);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all var(--animation-duration-normal);
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+.actionButton:hover {
+  transform: scale(1.1);
+}
+
+.actionButton:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.actionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.upvoteButton:hover:not(:disabled) {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.downvoteButton:hover:not(:disabled) {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.sideActions {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--spacing-2), 3vw, var(--spacing-4));
+  align-items: center;
+}
+
+.sideActionButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--spacing-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+  transition: all var(--animation-duration-fast);
+  border-radius: var(--radius);
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+.sideActionButton:hover:not(:disabled) {
+  transform: scale(1.1);
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sideActionButton:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.sideActionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sideActionButton.saved {
+  color: var(--primary);
+}
+
+.sideActionButton.saved:hover:not(:disabled) {
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.voteCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-weight: 500;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  padding: var(--spacing-1);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-4);
+  }
+  
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-4);
+  }
+  
+  .voteButtons {
+    order: 2;
+    justify-content: center;
+  }
+  
+  .sideActions {
+    order: 1;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .mainContent {
+    order: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: var(--spacing-2);
+  }
+  
+  .actionButton {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .caption {
+    font-size: 0.875rem;
+  }
+}

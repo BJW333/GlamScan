@@ -1,0 +1,203 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+
+
+
+:root {
+  /* Content layers */
+  --z-content-low: 10; /* Minor elevated content */
+  --z-content: 20; /* Standard elevated content */
+  --z-content-high: 30; /* Important content that needs prominence */
+
+  /* Navigation layers */
+  --z-nav-low: 100; /* Secondary navigation components */
+  --z-nav: 200; /* Primary navigation bars */
+  --z-nav-sticky: 300; /* Sticky navigation elements */
+
+  /* Overlay layers */
+  --z-overlay: 400;
+
+  --z-spotlight: 1000; /* Tutorial spotlights/guided help */
+
+  /* System layers */
+  --z-critical: 2000; /* Critical system notifications */
+
+  /* spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+}
+
+:root {
+  /* Light Mode */
+  --background: hsl(220 30% 98%);
+  --foreground: hsl(220 15% 25%);
+
+  --surface: hsl(0 0% 100%);
+  --surface-foreground: hsl(220 15% 20%);
+  --sidebar: hsl(220 30% 96%);
+  --sidebar-foreground: hsl(220 15% 25%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(220 15% 25%);
+  --popup: hsl(0 0% 100%);
+  --popup-foreground: hsl(220 15% 25%);
+
+  --primary: hsl(330 80% 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(190 70% 55%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --accent: hsl(330 80% 60%);
+  --accent-foreground: hsl(0 0% 100%);
+
+  --muted: hsl(220 20% 94%);
+  --muted-foreground: hsl(220 10% 45%);
+
+  --success: hsl(140 65% 45%);
+  --success-foreground: hsl(0 0% 100%);
+  --error: hsl(0 80% 60%);
+  --error-foreground: hsl(0 0% 100%);
+  --warning: hsl(40 90% 55%);
+  --warning-foreground: hsl(40 90% 15%);
+  --info: hsl(200 85% 55%);
+  --info-foreground: hsl(0 0% 100%);
+  --info-hover: hsl(200 85% 60%);
+  --info-active: hsl(200 85% 50%);
+
+  --border: hsl(220 20% 90%);
+
+  /* Font Families */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: 'Fira Code', 'ui-monospace', 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-cursive: 'Caveat', cursive;
+
+  /* Border Radius and box shadows */
+  --shadow: 0 1px 2px 0 hsl(220 15% 10% / 0.05);
+  --shadow-md: 0 4px 6px -1px hsl(220 15% 10% / 0.1), 0 2px 4px -2px hsl(220 15% 10% / 0.1);
+  --shadow-lg: 0 10px 15px -3px hsl(220 15% 10% / 0.1), 0 4px 6px -4px hsl(220 15% 10% / 0.1);
+  --shadow-focus: 0 0 0 3px hsl(330 80% 60% / 0.3);
+
+  --radius-sm: 0.25rem; /* 4px */
+  --radius: 0.5rem; /* 8px */
+  --radius-md: 0.75rem; /* 12px */
+  --radius-lg: 1rem; /* 16px */
+  --radius-full: 9999px;
+
+  /* Animation */
+  --animation-duration-fast: 150ms;
+  --animation-duration-normal: 300ms;
+  --animation-duration-slow: 500ms;
+
+  /* Chart colors */
+  --chart-color-1: hsl(330 75% 62%);
+  --chart-color-2: hsl(190 65% 57%);
+  --chart-color-3: hsl(260 70% 65%);
+  --chart-color-4: hsl(40 85% 60%);
+  --chart-color-5: hsl(10 78% 58%);
+
+  /* Skeleton loading colors */
+  --skeleton-bg: hsl(220 20% 92%);
+  --skeleton-shimmer: hsl(0 0% 100%);
+}
+
+.dark {
+  /* Dark Mode */
+  --background: hsl(220 15% 10%);
+  --foreground: hsl(220 15% 90%);
+
+  --surface: hsl(220 15% 15%);
+  --surface-foreground: hsl(220 15% 95%);
+  --sidebar: hsl(220 15% 12%);
+  --sidebar-foreground: hsl(220 15% 90%);
+  --card: hsl(220 15% 15%);
+  --card-foreground: hsl(220 15% 90%);
+  --popup: hsl(220 15% 18%);
+  --popup-foreground: hsl(220 15% 95%);
+
+  --primary: hsl(330 85% 65%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(190 75% 60%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --accent: hsl(330 85% 65%);
+  --accent-foreground: hsl(0 0% 100%);
+
+  --muted: hsl(220 10% 25%);
+  --muted-foreground: hsl(220 10% 65%);
+
+  --success: hsl(140 60% 50%);
+  --success-foreground: hsl(0 0% 100%);
+  --error: hsl(0 75% 65%);
+  --error-foreground: hsl(0 0% 100%);
+  --warning: hsl(40 85% 60%);
+  --warning-foreground: hsl(40 90% 15%);
+  --info: hsl(200 80% 60%);
+  --info-foreground: hsl(0 0% 100%);
+  --info-hover: hsl(200 80% 65%);
+  --info-active: hsl(200 80% 55%);
+
+  --border: hsl(220 10% 30%);
+
+  /* Shadows */
+  --shadow: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+  --shadow-focus: 0 0 0 3px hsl(330 85% 65% / 0.3);
+
+  /* Chart colors */
+  --chart-color-1: hsl(330 80% 68%);
+  --chart-color-2: hsl(190 70% 63%);
+  --chart-color-3: hsl(260 75% 70%);
+  --chart-color-4: hsl(40 90% 65%);
+  --chart-color-5: hsl(10 83% 64%);
+
+  /* Skeleton loading colors */
+  --skeleton-bg: hsl(220 10% 22%);
+  --skeleton-shimmer: hsl(220 15% 35%);
+}
+@layer base {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-family-base);
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  th, td {
+    display: table-cell!important;
+  }
+}

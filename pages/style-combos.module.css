@@ -1,0 +1,100 @@
+.pageContainer {
+  padding: var(--spacing-8) var(--spacing-6);
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.header {
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-6);
+}
+
+.headerActions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-4);
+}
+
+.generateButton {
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border: none;
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-md);
+  transition: all var(--animation-duration-fast) ease;
+}
+
+.generateButton:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary), black 5%) 0%, color-mix(in srgb, var(--secondary), black 5%) 100%);
+}
+
+.generateButton:active {
+  transform: translateY(0);
+}
+
+.viewModeToggle {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.toggleButton {
+  font-weight: 500;
+  transition: all var(--animation-duration-fast) ease;
+}
+
+.content {
+  margin-top: var(--spacing-4);
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: var(--spacing-6) var(--spacing-4);
+    gap: var(--spacing-6);
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .generateButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .viewModeToggle {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+  
+  .toggleButton {
+    width: 100%;
+    max-width: 200px;
+  }
+}

@@ -1,0 +1,85 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: clamp(var(--spacing-4), 3vw, var(--spacing-6));
+  padding: 0 clamp(var(--spacing-2), 2vw, var(--spacing-4));
+}
+
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(var(--spacing-6), 4vw, var(--spacing-8));
+  padding: 0 var(--spacing-4);
+}
+
+.loadMoreButton {
+  min-width: 200px;
+  font-weight: 500;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(var(--spacing-8), 8vw, var(--spacing-16)) clamp(var(--spacing-4), 4vw, var(--spacing-6));
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+  min-height: clamp(300px, 50vh, 400px);
+  margin: 0 var(--spacing-2);
+}
+
+.icon {
+  width: clamp(2.5rem, 8vw, 3rem);
+  height: clamp(2.5rem, 8vw, 3rem);
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.messageTitle {
+  font-family: var(--font-family-heading);
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.messageText {
+  font-size: clamp(0.875rem, 3vw, 1rem);
+  color: var(--muted-foreground);
+  max-width: min(400px, 90vw);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+}
+
+.clearFiltersButton {
+  margin-top: var(--spacing-2);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: var(--spacing-4);
+    padding: 0 var(--spacing-2);
+  }
+  
+  .loadMoreContainer {
+    margin-top: var(--spacing-6);
+    padding: 0 var(--spacing-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3);
+    padding: 0 var(--spacing-2);
+  }
+  
+  .messageContainer {
+    padding: var(--spacing-6) var(--spacing-3);
+    margin: 0 var(--spacing-1);
+  }
+}

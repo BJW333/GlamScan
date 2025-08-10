@@ -1,0 +1,136 @@
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Focusable visually hidden elements */
+.focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: var(--spacing-2) var(--spacing-3) !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  background: var(--surface) !important;
+  color: var(--surface-foreground) !important;
+  border: 2px solid var(--accent) !important;
+  border-radius: var(--radius) !important;
+  z-index: var(--z-critical) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Screen reader only content */
+.screenReaderOnly {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Live regions */
+.liveRegion {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Accessible descriptions */
+.accessibleDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: var(--spacing-1);
+}
+
+/* Error announcements */
+.errorAnnouncement {
+  color: var(--error);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: var(--spacing-1);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.errorAnnouncement::before {
+  content: '⚠';
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Status announcements */
+.statusAnnouncement {
+  color: var(--success);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: var(--spacing-1);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.statusAnnouncement::before {
+  content: '✓';
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .focusable:focus {
+    border-width: 3px !important;
+    outline: 2px solid currentColor !important;
+    outline-offset: 2px !important;
+  }
+  
+  .errorAnnouncement {
+    border-left: 3px solid var(--error);
+    padding-left: var(--spacing-2);
+  }
+  
+  .statusAnnouncement {
+    border-left: 3px solid var(--success);
+    padding-left: var(--spacing-2);
+  }
+}
+
+/* Ensure proper spacing in different contexts */
+.accessibleDescription + .errorAnnouncement,
+.accessibleDescription + .statusAnnouncement {
+  margin-top: var(--spacing-2);
+}
+
+/* Dark mode adjustments */
+.dark .focusable:focus {
+  background: var(--surface) !important;
+  color: var(--surface-foreground) !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .focusable:focus {
+    transition: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .visuallyHidden,
+  .screenReaderOnly,
+  .liveRegion {
+    display: none !important;
+  }
+}
